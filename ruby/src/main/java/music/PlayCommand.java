@@ -34,7 +34,13 @@ public class PlayCommand extends ListenerAdapter {
 
         if (!selfVoiceState.inVoiceChannel()) {
             JoinCommand.joinVC(event);
-            //delay for 1 second here than execute InVC()
+            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread.interrupt();
+            }
+            
             return;
         }
         else {
